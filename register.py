@@ -1,29 +1,31 @@
 
 data = []
 
-
-class Register(object):
-    def __init__(self, username, password):
+class Register:
+    
+    def __init__(self):
         """This method allows the admin to create a user"""
-        self.username = username
-        self.password = password
         self.db = data
         self.role = "User"
-
+    def add(self, username, password):
         # Validate common user data.
         for user in self.db:
-            if user['name'] == self.name:
+            if user['username'] == username:
                 message = "The name already in use in the system."
                 return message
 
-        payload = {"id": len(self.db) + 1, "name": self.name,
-                     "password": self.password, "role": self.role}
+        payload = {
+            "id": len(self.db) + 1,
+            "username": username,
+            "password": password,
+            "role": self.role
+            }
         data.append(payload)
         return "Successful registration"
 
     def get_user(self, userid):
         for user in data:
-            if user['userid'] == userid:
+            if user['id'] == userid:
                 return user
             return "The user is not in the system"
 

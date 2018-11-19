@@ -11,7 +11,6 @@ class Comments:
 		payload = {
 			"id": len(self.db)+1,
 			"message": message,
-			"timestamp": timestamp,
 			"author": author
 		}
 		self.db.append(payload)
