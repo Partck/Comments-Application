@@ -17,9 +17,9 @@ class Comments:
 		return payload
 
 	def edit_comment(self, commentsid, newmessage):
-		edit_comment = [comments for comments in self.db if comments['id'] == commentsID]
+		edit_comment = [comm for comm in self.db if comm['id'] == commentsid]
 		if edit_comment:
-			edit_comment[0]["message"] = newmessage
+			edit_comment[0]['message'] = newmessage
 			return edit_comment
 		else:
 			return False
